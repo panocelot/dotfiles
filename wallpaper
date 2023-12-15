@@ -1,0 +1,6 @@
+#!/bin/bash
+wallpaper=$(ls ~/pix | rofi -dmenu -i)
+pidd=$(pidof swaybg)
+kill $pidd
+echo $wallpaper > /home/sn/currentwallpaper
+[ $wallpaper -z ] || swaybg -i /home/sn/pix/$wallpaper -m fill
