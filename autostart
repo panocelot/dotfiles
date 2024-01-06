@@ -1,9 +1,0 @@
-#!/bin/bash
-
-p=$(pidof mpd pipewire)
-kill $p
-
-mpd &
-pipewire &
-swaybg -i /home/sn/pix/$(echo "$(<currentwallpaper)") -m fill &
-echo "ok"
