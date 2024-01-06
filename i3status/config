@@ -1,0 +1,27 @@
+general {
+  colors = true 
+  
+  color_good = "#82ad84"
+  color_bad = "#fd9082"
+  color_degraded = "#bd7c71"
+  separator = "<"
+  interval = 1
+}
+
+order += "ethernet _first_"
+order += "volume master"
+order += "tztime local"
+
+volume master {
+  format = " vol: %volume "
+  format_muted = " muted "
+}
+
+ethernet _first_ {
+  format_up = " %ip "
+  format_down = " down "
+}
+
+tztime local {
+  format = " %D %H:%M:%S "
+}

@@ -1,83 +1,56 @@
 set $mod Mod4
-
-#font pango:Ubuntu Mono Nerd Font 10.3
+set $term foot
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec foot 
-
-# kill focused window
+bindsym $mod+Return exec $term 
 bindsym $mod+Shift+q kill
-bindsym $mod+F4 exec wkill.sh
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+# window focus bindings
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
 #bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
 bindsym $mod+c sticky toggle
 
-bindsym $mod+1 workspace '~/'
-bindsym $mod+2 workspace 'Aa'
-bindsym $mod+3 workspace 'Bb'
-bindsym $mod+4 workspace 'Cc'
-bindsym $mod+5 workspace 'Dd'
+bindsym $mod+1 workspace '1'
+bindsym $mod+2 workspace '2'
+bindsym $mod+3 workspace '3'
+bindsym $mod+4 workspace '4'
+bindsym $mod+5 workspace '5'
+bindsym $mod+6 workspace '6'
+bindsym $mod+Shift+1 move container to workspace '1'
+bindsym $mod+Shift+2 move container to workspace '2'
+bindsym $mod+Shift+3 move container to workspace '3'
+bindsym $mod+Shift+4 move container to workspace '4'
+bindsym $mod+Shift+5 move container to workspace '5'
+bindsym $mod+Shift+6 move container to workspace '6'
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace '~/'
-bindsym $mod+Shift+2 move container to workspace 'Aa'
-bindsym $mod+Shift+3 move container to workspace 'Bb'
-bindsym $mod+Shift+4 move container to workspace 'Cc'
-bindsym $mod+Shift+5 move container to workspace 'Dd'
 
-# reload the configuration file
+#reload config
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec sway exit 
+#bindsym $mod+Shift+e exec sway exit 
 
 set $rz "Resize Mode"
 mode $rz {
@@ -90,45 +63,43 @@ mode $rz {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode $rz
 
-bindsym $mod+Shift+h exec sudo poweroff 
-bindsym $mod+Shift+r exec sudo reboot
+bindsym $mod+Shift+h exec loginctl poweroff 
+bindsym $mod+Shift+r exec loginctl reboot
 
 
 bindsym $mod+d exec "rofi -combi-modi window,drun,run -show drun"
 bindsym $mod+t exec thunar
 #bindsym $mod+x move workspace to output right
 
+#binds and exec on startup
+exec "cd /home/sn/.config/sway/ && ./autostart"
+bindsym $mod+f2 exec "cd /home/sn/.config/sway/ && ./autostart"
 
+bindsym $mod+F6 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym $mod+F7 exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym $mod+F8 exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 
-#exec
-exec "cd /home/sn && ./autostart"
+bindsym $mod+w exec wallpaper
 
-bindsym  Alt+F6 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym Alt+F7 exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym Alt+F8 exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-
-
-#-- I3 GAPS ZONE
 smart_gaps off
 smart_borders on
 gaps inner 6
 
-#I3 GAPS ZONE --
 
+#windows stuffs
 workspace_auto_back_and_forth yes
-for_window [class=".*"] border pixel 4
-for_window [app_id="pavucontrol"] floating enable
+for_window [class=".*"] border pixel 2
+for_window [class=".*"] title_format ""
+default_border none
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
-for_window [app_id="pavucontrol"] resize set width 200 ppt
 
 
 
 
-# class                 border   bground    text      indicator  child_border
-client.focused          #EEEEEE  #EEEEEE    #000000   #FAFAFA    #FAFAFA
+# colors                 border   bground    text      indicator  child_border
+client.focused          #DDEEDD  #DDEEDD    #000000   #DDEEDD    #DDEEDD
 client.focused_inactive #414141  #414141    #FFFFFF   #212121    #212121 
 client.unfocused        #414141  #414141    #FFEEFF   #2C2C2C    #272727
 client.urgent           #FFFFFF  #FFFFFF    #FFFFFF   #2C2C2C    #EEEEEE
@@ -139,39 +110,27 @@ client.background       #272727
 
 
 bar {
-	
 	position top
-
-  status_command /home/sn/downloads/bumblebee-status/bumblebee-status -m \
-	kernel mpd pipewire disk datetime \
-	-p root.path=/ time.locale="Europe/Warsaw" \
-  -t gruvbox-powerline
-#	-t iceberg-rainbow
-# -t gruvbox-powerline
-# -t greyish-powerline
-# -t night-powerline
-
-  font Terminus  17
-  #font pango:DejaVu Sans Mono, FontAwesome 12
-
+  gaps 6
+  swaybar_command swaybar
+  status_command /usr/bin/i3status
+  font iosevka 15
 	colors {
 
 
     background #202020 
 
-    focused_workspace  #806161   #806161      #000000 
-    active_workspace   #806767   #806767      #000000
-    inactive_workspace #202020   #202020      #FFFFFF
-    urgent_workspace   #8e4141   #8e4141      #FFFFFF
-    binding_mode       #8e4141   #8e4141      #FFFFFF
-
+#    focused_workspace  #806161   #806161    #000000 
+#    active_workspace   #806767   #806767    #000000
+    focused_workspace  #555555   #555555    #000000 
+    active_workspace   #555555   #555555    #000000
+    inactive_workspace #202020   #202020    #FFFFFF
+    urgent_workspace   #8e4141   #8e4141    #FFFFFF
+    binding_mode       #8e4141   #8e4141    #FFFFFF
   }
+}
 
-
-
-  }
-#}
-
+#keyboard settings
  input * {
         xkb_layout "pl"
         xkb_variant "legacy"
