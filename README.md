@@ -5,5 +5,6 @@
 ![image](https://github.com/panocelot/dotfiles/assets/69819938/6cf26b3c-0fca-42b7-8502-a1a938de7590)
 
 
-i made i silly wallpaper utility :DDDDDDDDDDDD
-don't mind it tho (it wont work on your system unless you change variables in some files)
+i made a silly wallpaper utility :DDDDDDDDDDDD
+
+don't mind it tho (it won't work on your system unless you change variables in some files)
