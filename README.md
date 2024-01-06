@@ -1,4 +1,4 @@
 # dotfiles
 
 
-copy the wallpapers file to $PATH for the script to work
+copy the wallpaper file to $PATH for the script to work
