@@ -1,5 +1,5 @@
 #!/bin/bash
-wallpaper=$(ls ~/pix | rofi -dmenu -i)
+wallpaper=$(ls ~/pix/wallpapers | rofi -dmenu -i)
 p=$(pidof swaybg)
 kill $p
 echo $wallpaper > /home/sn/.config/sway/currentwallpaper
