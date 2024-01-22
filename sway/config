@@ -1,6 +1,11 @@
 set $mod Mod4
 set $term foot
 floating_modifier $mod
+exec mako &
+
+bindsym Print exec grimshot copy screen
+#bindsym $mod+Shift+s grimshot copy area
+
 
 bindsym $mod+Return exec $term 
 bindsym $mod+Shift+q kill
@@ -90,7 +95,7 @@ gaps inner 6
 
 #windows stuffs
 workspace_auto_back_and_forth yes
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 for_window [class=".*"] title_format ""
 default_border none
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
@@ -99,34 +104,29 @@ for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 
 # colors                 border   bground    text      indicator  child_border
-client.focused          #DDEEDD  #DDEEDD    #000000   #DDEEDD    #DDEEDD
-client.focused_inactive #414141  #414141    #FFFFFF   #212121    #212121 
-client.unfocused        #414141  #414141    #FFEEFF   #2C2C2C    #272727
-client.urgent           #FFFFFF  #FFFFFF    #FFFFFF   #2C2C2C    #EEEEEE
-client.placeholder      #272727  #272727    #FFFFFF   #2C2C2C    #272727 
+client.focused          #111111  #000000    #ffffff   #ffeeff    #111111
+client.focused_inactive #111111  #000000    #ffffff   #212121    #111111 
+client.unfocused        #000000  #000000    #FFEEFF   #eeffee    #000000
+client.urgent           #2f2222  #000000    #FFFFFF   #2C2C2C    #222222
+client.placeholder      #000000  #000000    #FFFFFF   #2C2C2C    #000000 
 
-client.background       #272727
-
+client.background       #000000
 
 
 bar {
 	position top
   gaps 6
-  swaybar_command swaybar
   status_command /usr/bin/i3status
   font iosevka 15
 	colors {
 
+    background #000000
 
-    background #202020 
-
-#    focused_workspace  #806161   #806161    #000000 
-#    active_workspace   #806767   #806767    #000000
-    focused_workspace  #555555   #555555    #000000 
-    active_workspace   #555555   #555555    #000000
-    inactive_workspace #202020   #202020    #FFFFFF
-    urgent_workspace   #8e4141   #8e4141    #FFFFFF
-    binding_mode       #8e4141   #8e4141    #FFFFFF
+    focused_workspace  #000000   #000000    #ffffff 
+    active_workspace   #000000   #000000    #ffffff
+    inactive_workspace #000000   #000000    #ff7777
+    urgent_workspace   #002020   #002020    #7777ff
+    binding_mode       #333333   #333333    #ffffff
   }
 }
 
