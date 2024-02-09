@@ -2,6 +2,7 @@
 
 im using swayfx now
 
+![20240209_23h22m55s_grim](https://github.com/panocelot/dotfiles/assets/69819938/f0e83025-2d6e-4f20-8992-e8c569fe8d2e)
 
 
 ![image](https://github.com/panocelot/dotfiles/assets/69819938/bcb66de5-885b-4ee0-84c3-14b226aa5123)
