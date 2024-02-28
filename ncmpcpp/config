@@ -1,0 +1,31 @@
+ncmpcpp_directory = ~/.config/ncmpcpp/
+
+mpd_host = localhost
+mpd_port = 6600
+mpd_music_dir = ~/music
+mpd_connection_timeout = 5
+
+## display modes ##
+playlist_display_mode = "classic"
+
+## general colors $$
+colors_enabled = "yes"
+main_window_color = "white"
+header_window_color = "white"
+volume_color = "white"
+progressbar_color ="white"
+progressbar_elapsed_color ="white"
+
+## song list ##
+song_list_format = "{$7%a - $9}{$5%t$9}|{$5%f$9}$R{$6%b $9}{$3%l$9}"
+
+## item ##
+current_item_prefix = "$(white)$r"
+current_item_suffix = "$/r$(end)"
+
+## progress bar ##
+progressbar_look = "+|-"
+
+## now playing ##
+#now_playing_prefix = "> "
+centered_cursor = "yes"
