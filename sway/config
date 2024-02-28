@@ -1,11 +1,11 @@
 set $mod Mod4
 set $term foot
 floating_modifier $mod
-exec mako &
+exec gammastep -l 52:13 -t 6500:2900 &
+exec mako -c /home/kita/.config/mako/config &
 
 bindsym Print exec grimshot copy screen
 #bindsym $mod+Shift+s grimshot copy area
-
 
 bindsym $mod+Return exec $term 
 bindsym $mod+Shift+q kill
@@ -24,7 +24,6 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
 #bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -55,15 +54,15 @@ bindsym $mod+Shift+6 move container to workspace '6'
 
 #reload config
 bindsym $mod+Shift+c reload
-#bindsym $mod+Shift+e exec sway exit 
+bindsym $mod+Shift+e exec sway exit 
 
 set $rz "Resize Mode"
 mode $rz {
         # These bindings trigger as soon as you enter the resize mode
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width 15 px or 15 ppt
+        bindsym Down resize grow height 15 px or 15 ppt
+        bindsym Up resize shrink height 15 px or 15 ppt
+        bindsym Right resize grow width 15 px or 15 ppt
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -75,32 +74,35 @@ bindsym $mod+Shift+r exec loginctl reboot
 
 
 bindsym $mod+d exec "rofi -combi-modi window,drun,run -show drun"
-bindsym $mod+t exec thunar
+bindsym $mod+t exec nemo
 #bindsym $mod+x move workspace to output right
 
 #binds and exec on startup
-exec "cd /home/sn/.config/sway/ && ./autostart"
-bindsym $mod+f2 exec "cd /home/sn/.config/sway/ && ./autostart"
+exec "cd /home/kita/.config/sway/ && ./autostart"
+bindsym $mod+f2 exec "cd /home/kita/.config/sway/ && ./autostart"
 
 bindsym $mod+F6 exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym $mod+F7 exec pactl set-sink-volume @DEFAULT_SINK@ -2%
-bindsym $mod+F8 exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym $mod+F7 exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym $mod+F8 exec pactl set-sink-volume @DEFAULT_SINK@ +1%
 
-bindsym $mod+w exec wallpaper
+bindsym $mod+shift+w exec wallpaper
 
 smart_gaps off
 smart_borders on
 gaps inner 6
 
 
-#windows stuffs
 workspace_auto_back_and_forth yes
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
 for_window [class=".*"] title_format ""
 default_border none
-for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 
+#eye candy
+blur enable
+blur_radius 10
+default_dim_inactive 0.3
+corner_radius 10
 
 
 # colors                 border   bground    text      indicator  child_border
@@ -114,7 +116,7 @@ client.background       #000000
 
 
 bar {
-	position top
+	position bottom
   gaps 6
   status_command /usr/bin/i3status
   font iosevka 15
@@ -130,9 +132,14 @@ bar {
   }
 }
 
-#keyboard settings
+#keyboard & mouse settings
  input * {
         xkb_layout "pl"
         xkb_variant "legacy"
 }
-
+ input * {
+    left_handed disabled
+    natural_scroll disabled
+    accel_profile "flat"
+    pointer_accel 0 
+}
