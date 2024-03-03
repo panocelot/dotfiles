@@ -74,7 +74,7 @@ bindsym $mod+Shift+r exec loginctl reboot
 
 
 bindsym $mod+d exec "rofi -combi-modi window,drun,run -show drun"
-bindsym $mod+t exec nemo
+bindsym $mod+t exec Thunar
 #bindsym $mod+x move workspace to output right
 
 #binds and exec on startup
@@ -119,16 +119,16 @@ bar {
 	position bottom
   gaps 6
   status_command /usr/bin/i3status
-  font iosevka 15
+  font iosevka fixed slab 19
 	colors {
 
     background #000000
 
-    focused_workspace  #000000   #000000    #ffffff 
-    active_workspace   #000000   #000000    #ffffff
-    inactive_workspace #000000   #000000    #ff7777
-    urgent_workspace   #002020   #002020    #7777ff
-    binding_mode       #333333   #333333    #ffffff
+    focused_workspace  #000000   #000000   #ffffff 
+    active_workspace   #000000   #000000   #ffffff
+    inactive_workspace #000000   #000000   #ff7777
+    urgent_workspace   #002020   #002020   #7777ff
+    binding_mode       #333333   #333333   #ffffff
   }
 }
 
@@ -137,6 +137,7 @@ bar {
         xkb_layout "pl"
         xkb_variant "legacy"
 }
+
  input * {
     left_handed disabled
     natural_scroll disabled
