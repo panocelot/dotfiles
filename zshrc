@@ -21,3 +21,6 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+(cat ~/.cache/wal/sequences &)
+#wal -i "/home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)")"

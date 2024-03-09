@@ -38,18 +38,18 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+c sticky toggle
 
-bindsym $mod+1 workspace '1'
-bindsym $mod+2 workspace '2'
-bindsym $mod+3 workspace '3'
-bindsym $mod+4 workspace '4'
-bindsym $mod+5 workspace '5'
-bindsym $mod+6 workspace '6'
-bindsym $mod+Shift+1 move container to workspace '1'
-bindsym $mod+Shift+2 move container to workspace '2'
-bindsym $mod+Shift+3 move container to workspace '3'
-bindsym $mod+Shift+4 move container to workspace '4'
-bindsym $mod+Shift+5 move container to workspace '5'
-bindsym $mod+Shift+6 move container to workspace '6'
+bindsym $mod+1 workspace '[1]'
+bindsym $mod+2 workspace '[2]'
+bindsym $mod+3 workspace '[3]'
+bindsym $mod+4 workspace '[4]'
+bindsym $mod+5 workspace '[5]'
+bindsym $mod+6 workspace '[6]'
+bindsym $mod+Shift+1 move container to workspace '[1]'
+bindsym $mod+Shift+2 move container to workspace '[2]'
+bindsym $mod+Shift+3 move container to workspace '[3]'
+bindsym $mod+Shift+4 move container to workspace '[4]'
+bindsym $mod+Shift+5 move container to workspace '[5]'
+bindsym $mod+Shift+6 move container to workspace '[6]'
 
 
 #reload config
@@ -119,15 +119,15 @@ bar {
 	position bottom
   gaps 6
   status_command /usr/bin/i3status
-  font iosevka fixed slab 19
+  font iosevka fixed slab, nerd fonts 19
 	colors {
 
     background #000000
 
     focused_workspace  #000000   #000000   #ffffff 
     active_workspace   #000000   #000000   #ffffff
-    inactive_workspace #000000   #000000   #ff7777
-    urgent_workspace   #002020   #002020   #7777ff
+    inactive_workspace #000000   #000000   #4f4154
+    urgent_workspace   #002020   #002020   #695b6e
     binding_mode       #333333   #333333   #ffffff
   }
 }
