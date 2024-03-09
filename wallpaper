@@ -1,6 +1,7 @@
 #!/bin/bash
 wallpaper=$(ls ~/pix/wallpapers | rofi -dmenu -i)
+wal -i "/home/kita/pix/wallpapers/$wallpaper"
 p=$(pidof swaybg)
 kill $p
-echo $wallpaper > /home/sn/.config/sway/currentwallpaper
-[ $wallpaper -z ] || swaybg -i /home/sn/pix/wallpapers/$wallpaper -m fill
+echo $wallpaper > /home/kita/.config/sway/currentwallpaper
+[ $wallpaper -z ] || swaybg -i /home/kita/pix/wallpapers/$wallpaper -m fill
