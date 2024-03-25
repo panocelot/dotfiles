@@ -1,0 +1,12 @@
+#!/bin/bash
+
+p=$(pidof mpd pipewire)
+kill $p
+
+#XDG_CURRENT_DESKTOP=sway
+mpd &
+pipewire &
+swaybg -i /home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)") -m fill &
+wal -i "/home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)")"
+#cd /usr/local/searxng-docker && docker compose up -d &
+echo "ok"

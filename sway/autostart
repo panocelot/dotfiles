@@ -8,5 +8,5 @@ mpd &
 pipewire &
 swaybg -i /home/kita/pix/wallpapers/$(echo "$(<currentwallpaper)") -m fill &
 wal -i "/home/kita/pix/wallpapers/$(echo "$(<currentwallpaper)")"
-cd /usr/local/searxng-docker && docker compose up -d &
+#cd /usr/local/searxng-docker && docker compose up -d &
 echo "ok"
