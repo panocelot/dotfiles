@@ -7,6 +7,7 @@ kill $p
 mpd &
 pipewire &
 swaybg -i /home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)") -m fill &
-wal -i "/home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)")"
+wal -i "/home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)")" &
+exec gammastep -l 52:13 -t 6500:2900 &
 #cd /usr/local/searxng-docker && docker compose up -d &
 echo "ok"

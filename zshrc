@@ -1,16 +1,12 @@
-# Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%F{131}%n%f%F{138}@%f%F{131}%m%f %F{101}%~%f > "
-# History in cache directory:
+PS1="%F{white}%n%f%B%F{246}@%f%b%F{white}%m%f %F{241}%~%f > "
 
-# Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots)
 
-# Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -23,4 +19,11 @@ lfcd () {
 bindkey -s '^o' 'lfcd\n'
 
 (cat ~/.cache/wal/sequences &)
-#wal -i "/home/kita/pix/wallpapers/$(echo "$(</home/kita/.config/sway/currentwallpaper)")"
+
+#aliases
+alias ls='ls --color=auto'
+alias hyprland=Hyprland
+alias vol="wpctl get-volume @DEFAULT_SINK@"
+alias panocelot="TERM=rxvt ssh panocelot@panocelot"
+alias eww=eww-wayland
+alias nijika="TERM=rxvt ssh nijika@panoclot.xyz"
