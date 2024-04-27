@@ -1,7 +1,7 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Iosevka fixed slab", FontAwesome;
-    font-size: 17px;
+    /* Iosevka fixed slab `otf-font-awesome` is required to be installed for icons */
+    font-family: "terminus", FontAwesome;
+    font-size: 16px;
 }
 
 window#waybar {
