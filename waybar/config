@@ -1,9 +1,9 @@
 {
      "layer": "top", // Waybar a top layer
-     "position": "bottom", // Waybar position (top|bottom|left|right)
+     "position": "top", // Waybar position (top|bottom|left|right)
 
 
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 26, // Waybar height (to be removed for auto height)
 
     // "width": 1280, // Waybar width
     "spacing": -15, // Gaps between modules (4px)
@@ -17,24 +17,25 @@
      "hyprland/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
-         "warp-on-scroll": false,
-         "format": "{name}: {icon}",
-         "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "󰙯",
-             "5": "󰓓",
-             "6": "󰂫",
-             "urgent": "",
-             "focused": "",
-             "default": ""
-         }
+         "warp-on-scroll": false
+//         "format": "{name}: {icon}",
+//         "format-icons": {
+//             "1": "",
+//             "2": "",
+//             "3": "",
+//             "4": "󰙯",
+//             "5": "󰓓",
+//             "6": "󰂫",
+//             "urgent": "",
+//             "focused": "",
+//             "default": ""
+//         }
      },
 
 
      "wireplumber": {
-     	"format": "[vol {volume}%]"
+     	"format": "[vol {volume}%]",
+	"max-volume": 120
      },
 
 
@@ -52,7 +53,7 @@
 
 
     "memory": {
-        "format":"[mem {used}/{avail}]"
+        "format":"[mem {used}]"
     },
 
 
