@@ -1,5 +1,7 @@
 # dotfiles
 
+severly outdated
+
 hyprland, swayfx, dwm
 
 
